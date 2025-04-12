@@ -1,0 +1,502 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --primary-color: #1a1a2e;
+  --secondary-color: #16213e;
+  --accent-color: #0f3460;
+  --highlight-color: #e94560;
+  --text-light: #f7f7f7;
+  --text-dark: #333;
+  --card-bg: rgba(255, 255, 255, 0.1);
+  --timeline-line: #e94560;
+  --timeline-dot: #e94560;
+  --quote-bg: rgba(15, 52, 96, 0.8);
+  --achievement-card-bg: rgba(255, 255, 255, 0.05);
+  --achievement-icon-color: #e94560;
+  --transition: all 0.3s ease;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.6;
+  background-color: var(--primary-color);
+  color: var(--text-light);
+  overflow-x: hidden;
+}
+
+/* Header Styles */
+header {
+  position: relative;
+  background: linear-gradient(rgba(26, 26, 46, 0.8), rgba(15, 52, 96, 0.9)), 
+              url('https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/A._P._J._Abdul_Kalam.jpg/800px-A._P._J._Abdul_Kalam.jpg') no-repeat center center/cover;
+  height: 50vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+}
+
+.hero {
+  max-width: 800px;
+  z-index: 1;
+}
+
+header h1 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 3.5rem;
+  margin-bottom: 0.5rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.subtitle {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  font-style: italic;
+  margin-bottom: 1rem;
+  color: var(--highlight-color);
+}
+
+.years {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 500;
+  letter-spacing: 3px;
+  padding: 0.5rem 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  display: inline-block;
+  margin-top: 1rem;
+}
+
+/* Main Content Styles */
+main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+section {
+  margin-bottom: 4rem;
+}
+
+h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2.2rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background-color: var(--highlight-color);
+}
+
+/* Intro Section */
+.intro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--secondary-color);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  margin-top: -4rem;
+  position: relative;
+  z-index: 2;
+}
+
+.quote-container {
+  background-color: var(--quote-bg);
+  padding: 2rem;
+  text-align: center;
+  width: 100%;
+  position: relative;
+}
+
+.quote {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem;
+  font-style: italic;
+  line-height: 1.4;
+  margin: 0 2rem;
+}
+
+.quote-icon {
+  font-size: 1.5rem;
+  color: var(--highlight-color);
+  margin: 0 0.5rem;
+  opacity: 0.8;
+}
+
+.image-container {
+  width: 100%;
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.intro img {
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 5px solid var(--highlight-color);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  transition: var(--transition);
+}
+
+.intro img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+}
+
+/* Timeline Section */
+.timeline {
+  position: relative;
+  max-width: 900px;
+  margin: 4rem auto;
+}
+
+.timeline-container {
+  position: relative;
+  padding: 2rem 0;
+}
+
+.timeline-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 100%;
+  background-color: var(--timeline-line);
+  z-index: 1; /* Set a lower z-index than the date elements */
+}
+
+.timeline-item {
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 30px;
+  position: relative;
+  margin-bottom: 2.5rem;
+  width: 50%;
+}
+
+.timeline-item:nth-child(even) {
+  align-self: flex-end;
+  justify-content: flex-start;
+  padding-left: 30px;
+  padding-right: 0;
+  left: 50%;
+}
+
+.timeline-date {
+  position: absolute;
+  width: 80px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--highlight-color);
+  color: var(--text-light);
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  right: -40px;
+  top: 0;
+  z-index: 2; /* Ensure date appears above the timeline line */
+}
+
+.timeline-item:nth-child(even) .timeline-date {
+  left: -40px;
+  right: auto;
+}
+
+.timeline-content {
+  background-color: var(--card-bg);
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  position: relative;
+  transition: var(--transition);
+}
+
+.timeline-content::before {
+  content: '';
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  background-color: var(--timeline-dot);
+  border-radius: 50%;
+  top: 10px;
+  right: -37px;
+  box-shadow: 0 0 0 4px rgba(233, 69, 96, 0.2);
+}
+
+.timeline-item:nth-child(even) .timeline-content::before {
+  left: -37px;
+  right: auto;
+}
+
+.timeline-content h3 {
+  font-family: 'Montserrat', sans-serif;
+  margin-bottom: 0.5rem;
+  color: var(--highlight-color);
+}
+
+.timeline-content p {
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.timeline-content:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Content Section */
+.content-container {
+  background-color: var(--secondary-color);
+  border-radius: 10px;
+  padding: 2rem;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.content-container p {
+  margin-bottom: 1.5rem;
+  font-size: 1.05rem;
+  line-height: 1.8;
+}
+
+.content-container p:last-child {
+  margin-bottom: 0;
+}
+
+/* Achievements Section */
+.achievements-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.achievement-card {
+  background-color: var(--achievement-card-bg);
+  border-radius: 10px;
+  padding: 2rem 1.5rem;
+  text-align: center;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: var(--transition);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.achievement-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  border-color: var(--highlight-color);
+}
+
+.achievement-icon {
+  font-size: 2.5rem;
+  color: var(--achievement-icon-color);
+  margin-bottom: 1rem;
+}
+
+.achievement-card h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.3rem;
+  margin-bottom: 0.8rem;
+}
+
+.achievement-card p {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* Quotes Section */
+.quotes-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.quote-card {
+  background-color: var(--quote-bg);
+  border-radius: 10px;
+  padding: 2rem;
+  position: relative;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: var(--transition);
+}
+
+.quote-card::before {
+  content: '\201C';
+  font-family: Georgia, serif;
+  font-size: 5rem;
+  position: absolute;
+  top: -10px;
+  left: 10px;
+  color: var(--highlight-color);
+  opacity: 0.3;
+}
+
+.quote-card p {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  position: relative;
+  z-index: 1;
+}
+
+.quote-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* Footer Styles */
+footer {
+  background-color: var(--secondary-color);
+  padding: 2rem 0;
+  text-align: center;
+  margin-top: 3rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.social-links {
+  margin-top: 1rem;
+}
+
+.social-links a {
+  display: inline-block;
+  margin: 0 0.5rem;
+  color: var(--text-light);
+  font-size: 1.5rem;
+  transition: var(--transition);
+}
+
+.social-links a:hover {
+  color: var(--highlight-color);
+  transform: translateY(-3px);
+}
+
+/* Responsive Styles */
+@media (max-width: 992px) {
+  header h1 {
+    font-size: 3rem;
+  }
+  
+  .quote {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  header {
+    height: 40vh;
+  }
+  
+  header h1 {
+    font-size: 2.5rem;
+  }
+  
+  .subtitle {
+    font-size: 1.2rem;
+  }
+  
+  .timeline-container::before {
+    left: 30px;
+  }
+  
+  .timeline-item {
+    width: 100%;
+    padding-left: 70px;
+    padding-right: 0;
+    justify-content: flex-start;
+  }
+  
+  .timeline-item:nth-child(even) {
+    left: 0;
+    padding-left: 70px;
+  }
+  
+  .timeline-date {
+    left: 0;
+    right: auto;
+    z-index: 2; /* Maintain z-index in responsive view */
+  }
+  
+  .timeline-item:nth-child(even) .timeline-date {
+    left: 0;
+  }
+  
+  .timeline-content::before {
+    left: -37px;
+    right: auto;
+  }
+  
+  .content-container p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 576px) {
+  header h1 {
+    font-size: 2rem;
+  }
+  
+  .subtitle {
+    font-size: 1rem;
+  }
+  
+  .years {
+    font-size: 1rem;
+  }
+  
+  .quote {
+    font-size: 1.2rem;
+    margin: 0 1rem;
+  }
+  
+  h2 {
+    font-size: 1.8rem;
+  }
+  
+  .achievement-card {
+    padding: 1.5rem 1rem;
+  }
+  
+  .quote-card {
+    padding: 1.5rem;
+  }
+  
+  .quote-card p {
+    font-size: 1rem;
+  }
+}
